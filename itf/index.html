@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="RandomBite — เว็บสุ่มอาหารสวย ๆ ที่ช่วยตอบคำถาม 'วันนี้กินอะไรดี?' พร้อมรูปเมนู คำอธิบาย และราคา" />
+  <title>RandomBite · วันนี้กินอะไรดี?</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;500;600;700&family=Noto+Sans+Thai:wght@300;400;500;600&family=Outfit:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="styles.css" />
+  <link
+    rel="icon"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍜</text></svg>"
+  />
+</head>
+<body>
+  <!-- พื้นหลังตกแต่ง -->
+  <div class="bg-decor" aria-hidden="true">
+    <span class="blob blob-1"></span>
+    <span class="blob blob-2"></span>
+    <span class="blob blob-3"></span>
+    <span class="grain"></span>
+  </div>
+
+  <!-- ===== Navbar ===== -->
+  <header class="navbar">
+    <div class="nav-inner">
+      <a class="brand" href="#" aria-label="RandomBite หน้าแรก">
+        <span class="brand-mark">🍽️</span>
+        <span class="brand-text">Random<span>Bite</span></span>
+      </a>
+
+      <nav class="nav-links" aria-label="เมนูหลัก">
+        <a href="#picker" class="is-active">หน้าแรก</a>
+        <a href="#how">วิธีใช้งาน</a>
+        <a href="#about">เกี่ยวกับ</a>
+      </nav>
+
+      <button class="nav-cta" type="button" data-random>
+        <span class="nav-cta-dot"></span>
+        สุ่มเลย!
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- ===== Hero ===== -->
+    <section class="hero">
+      <p class="eyebrow"><span>✦</span> ไม่รู้จะกินอะไร? ให้เราช่วย</p>
+      <h1>วันนี้<span class="grad">กินอะไรดี?</span></h1>
+      <p class="hero-sub">
+        กดปุ่มเดียว ได้เมนูใหม่ทันที พร้อมรูปน่ากิน คำอธิบาย และราคา
+        <br class="hide-sm" />ไม่ต้องคิดนาน ไม่ต้องตกลงกันไม่ได้อีกต่อไป
+      </p>
+    </section>
+
+    <!-- ===== Food picker ===== -->
+    <section class="picker" id="picker">
+      <article class="food-card" id="foodCard" aria-live="polite" aria-atomic="true">
+        <div class="card-media">
+          <img id="foodImage" alt="" decoding="async" />
+          <div class="media-shade" aria-hidden="true"></div>
+          <span class="badge" id="foodCategory">—</span>
+          <span class="media-note" aria-hidden="true">Today's pick</span>
+        </div>
+
+        <div class="card-body">
+          <p class="card-eyebrow" id="foodEyebrow">เมนูที่สุ่มได้</p>
+          <h2 class="food-name" id="foodName">กำลังโหลดเมนู…</h2>
+          <p class="food-desc" id="foodDesc">
+            กดปุ่ม “สุ่มอาหาร” ด้านล่างเพื่อเริ่มต้น
+          </p>
+
+          <div class="card-footer">
+            <div class="price-wrap">
+              <span class="price-label">ราคา</span>
+              <p class="price" id="foodPrice">฿0</p>
+            </div>
+
+            <button class="btn-random" type="button" id="randomBtn" data-random>
+              <span class="btn-dice" aria-hidden="true">🎲</span>
+              <span class="btn-label">สุ่มอาหาร</span>
+            </button>
+          </div>
+
+          <p class="hint">
+            <kbd>Space</kbd> ก็สุ่มได้ · สุ่มไปแล้ว
+            <strong id="rollCount">0</strong> ครั้ง · ระบบจะไม่สุ่มเมนูเดิมติดกัน
+          </p>
+        </div>
+      </article>
+    </section>
+
+    <!-- ===== How it works ===== -->
+    <section class="how" id="how">
+      <div class="feature">
+        <span class="feature-icon">🎯</span>
+        <h3>ไม่ซ้ำติดกัน</h3>
+        <p>อัลกอริทึมดักไว้แล้วว่าเมนูที่เพิ่งสุ่มจะไม่ถูกสุ่มซ้ำในครั้งถัดไป</p>
+      </div>
+      <div class="feature">
+        <span class="feature-icon">🖼️</span>
+        <h3>เห็นภาพก่อนตัดสินใจ</h3>
+        <p>ทุกเมนูมาพร้อมรูปจริง คำอธิบายรสชาติ และราคาโดยประมาณ</p>
+      </div>
+      <div class="feature">
+        <span class="feature-icon">⚡</span>
+        <h3>เร็วและลื่นไหล</h3>
+        <p>เปลี่ยนเมนูด้วยแอนิเมชันนุ่ม ๆ ใช้งานได้ทั้งมือถือและคอมพิวเตอร์</p>
+      </div>
+    </section>
+
+    <!-- ===== About ===== -->
+    <section class="about" id="about">
+      <h2>เกี่ยวกับ <span class="grad">RandomBite</span></h2>
+      <p>
+        RandomBite เป็นเว็บเล็ก ๆ ที่สร้างขึ้นเพื่อช่วยตัดสินใจเรื่องอาหารในแต่ละวัน
+        เพราะบางทีคำถามที่ตอบยากที่สุดก็คือ “กินอะไรดี?”
+        เลือกจาก 10 เมนูยอดนิยม แล้วปล่อยให้ความหิวเป็นคนตัดสินใจ
+      </p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© <span id="year">2026</span> RandomBite · ทำด้วย HTML, CSS &amp; JavaScript</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
